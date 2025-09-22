@@ -1,6 +1,6 @@
 # a prompting technique where we directly give the instructions to the model
-from openai import OpenAI
-from dotenv import load_dotenv
+from openai import OpenAI #type:ignore
+from dotenv import load_dotenv #type:ignore
 
 load_dotenv()
 

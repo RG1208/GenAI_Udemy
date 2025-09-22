@@ -1,7 +1,7 @@
 # a prompting technique where we directly give the instructions to the model and some examples of the task we want it to perform 
 #  used more
-from openai import OpenAI
-from dotenv import load_dotenv
+from openai import OpenAI #type:ignore
+from dotenv import load_dotenv #type:ignore
 import json
 
 load_dotenv()

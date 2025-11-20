@@ -3,6 +3,7 @@ from openai import OpenAI #type:ignore
 from dotenv import load_dotenv#type:ignore 
 import json
 import os
+import streamlit as st
 
 load_dotenv()
 
@@ -18,14 +19,20 @@ SYSTEM_PROMPT = """
     The output must be an ordered list of 5 bullet points.
     """
 
-user_text = input("\nEnter the text you want to summarize:\n\n")
+st.title("AI Text Summarizer")
 
-response=client.chat.completions.create(
-    model="gemini-2.5-flash", 
-    messages=[
-        {"role":  "system", "content": SYSTEM_PROMPT},
-        {"role":  "user", "content": user_text},
-    ]
-)
+text = st.text_area("Enter your text")
 
-print(response.choices[0].message.content) 
+# user_text = input("\nEnter the text you want to summarize:\n\n")
+
+if st.button("Summarize"):
+    response=client.chat.completions.create(
+        model="gemini-2.5-flash", 
+        messages=[
+            {"role":  "system", "content": SYSTEM_PROMPT},
+            {"role":  "user", "content": text},
+        ]
+    )
+
+    st.subheader("Summary")
+    st.write(response.choices[0].message.content)

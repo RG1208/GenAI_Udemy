@@ -2,7 +2,7 @@
 from openai import OpenAI #type:ignore
 from dotenv import load_dotenv #type:ignore
 
-load_dotenv()
+# load_dotenv()
 
 client = OpenAI(
     api_key="AIzaSyBuXAlcUk2r2b4flWZohNaMiSTBVaR2sW0",
